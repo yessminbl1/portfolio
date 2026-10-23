@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-primary: #6366f1; /* Indigo 500 */
+  --color-secondary: #ec4899; /* Pink 500 */
+  --color-dark-bg: #0f172a; /* Slate 900 */
+}
+
+/* Base Styles */
+:root {
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  font-weight: 400;
+  
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: var(--color-dark-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.15) 0%, transparent 25%);
+  background-attachment: fixed;
+}
+
+/* Glassmorphism Utilities */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.glass-nav {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Custom Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Typed Cursor Animation */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.typed-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background-color: #6366f1;
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+  border-radius: 2px;
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Skill Bar Animation */
+@keyframes skillBar {
+  from { width: 0%; }
+  to { width: var(--skill-level); }
+}
+
+.skill-bar {
+  width: 0%;
+  animation: skillBar 1.2s ease-out forwards;
+  animation-play-state: paused;
+}
+
+.skill-bar.animated {
+  animation-play-state: running;
+}
+
+/* Gradient Animated Text */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text-animated {
+  background: linear-gradient(270deg, #6366f1, #ec4899, #a855f7, #6366f1);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
+}
+
+/* Service Card Glow */
+.service-card-indigo:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
+}
+
+.service-card-pink:hover {
+  border-color: rgba(236, 72, 153, 0.5);
+  box-shadow: 0 0 30px rgba(236, 72, 153, 0.15);
+}
+
+.service-card-purple:hover {
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.15);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
